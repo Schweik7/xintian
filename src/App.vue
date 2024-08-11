@@ -45,7 +45,7 @@
             >
             <div class="block_1 flex-col"></div>
             <div class="text-wrapper_2 flex-col">
-              <span class="text_8">了解更多</span>
+              <span class="text_in_button">了解更多</span>
             </div>
             <span class="text_9">一个帮助你心理成长的空间</span>
           </div>
@@ -78,7 +78,7 @@
                 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这里，用户可以接触到丰富的心理学知识，包<br />括心理发展的基础知识、常见心理问题的原因、症状<br />以及对应策略。</span
               >
               <div class="text-wrapper_3 flex-col">
-                <span class="text_14">立即体验</span>
+                <span class="text_in_button">立即体验</span>
               </div>
             </div>
             <div class="block_3 flex-col">
@@ -94,7 +94,7 @@
                 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提供经典心理测评问卷，如：抑郁症、焦虑症、<br />强迫症等，帮助用户了解自身心理状况。<br
               /></span>
               <div class="text-wrapper_4 flex-col">
-                <span class="text_16">立即体验</span>
+                <span class="text_in_button">立即体验</span>
               </div>
               <img
                 class="image_3"
@@ -109,13 +109,13 @@
                   referrerpolicy="no-referrer"
                   src="./images/fe741c7a583bb2e08bd5784d9c990776.png"
                 />
-                <span class="text_17">VR测试</span>
+                <span class="text_in_button">VR测试</span>
               </div>
               <span class="paragraph_3"
                 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自主研发VR评估场景（如情景测验）等，提高<br />测评的信效度，减轻心理老师等相关工作者的工作<br />压力。<br
               /></span>
               <div class="text-wrapper_5 flex-col">
-                <span class="text_18">立即体验</span>
+                <span class="text_in_button">立即体验</span>
               </div>
             </div>
             <div class="image-wrapper_1 flex-col">
@@ -206,7 +206,7 @@
         <div class="section_17 flex-row justify-between">
           <div class="group_5 flex-col"></div>
           <div class="group_12 flex-col justify-between">
-            <div class="text-wrapper_6">
+            <div class="para-wrapper_6">
               <span class="text_19">北京师范大学、北京林业大学</span>
               <span class="paragraph_8"
                 >为代表的研究团队提供青少年心理评估与干预的理论和实践依据<br
@@ -219,7 +219,7 @@
               <span class="text_22">提供专业数字化技术和产业基础保障</span>
             </div>
             <div class="text-wrapper_7 flex-col">
-              <span class="text_23">进一步了解</span>
+              <span class="text_in_button">进一步了解</span>
             </div>
           </div>
         </div>

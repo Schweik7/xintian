@@ -133,7 +133,7 @@
     font-weight: 700;
     text-align: center;
     white-space: nowrap;
-    line-height: 36px;
+    /* line-height: 36px; */
   }
   
   .text_5 {
@@ -146,7 +146,7 @@
     font-weight: 700;
     text-align: center;
     white-space: nowrap;
-    line-height: 36px;
+    /* line-height: 36px; */
     margin-left: 80px;
   }
   
@@ -160,7 +160,7 @@
     font-weight: 700;
     text-align: center;
     white-space: nowrap;
-    line-height: 36px;
+    /* line-height: 36px; */
     margin-left: 80px;
   }
   
@@ -457,20 +457,24 @@
     border: 2px solid rgba(255, 218, 70, 1);
     width: 106px;
     margin: 47px 0 32px 139px;
+    display: flex; /* 启用flexbox布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
   }
   
-  .text_16 {
-    width: 56px;
-    height: 14px;
-    overflow-wrap: break-word;
+  .text_in_button {
+    /* width: 56px;
+    height: 14px; */
+    /* overflow-wrap: break-word; */
     color: rgba(51, 51, 51, 1);
     font-size: 14px;
     font-family: PingFang-SC-Regular;
     font-weight: normal;
     text-align: center;
     white-space: nowrap;
-    line-height: 30px;
-    margin: 13px 0 0 26px;
+    line-height: normal; /* 取消固定的line-height以适应flexbox居中 */
+    /* line-height: 30px;
+    margin: 3px 0 0 25px; */
   }
   
   .image_3 {
@@ -844,7 +848,7 @@
     height: 165px;
   }
   
-  .text-wrapper_6 {
+  .para-wrapper_6 {
     width: 584px;
     height: 74px;
     overflow-wrap: break-word;
@@ -1394,4 +1398,9 @@
     height: 23px;
     margin-left: 20px;
   }
-  
+  /* 为所有text-wrapper类添加flexbox布局，方便让文字居中 */
+  [class^="text-wrapper"] {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
