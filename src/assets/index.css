@@ -57,9 +57,10 @@
   }
   
   .thumbnail_1 {
-    width: 20px;
-    height: 20px;
-    margin: 24px 0 0 426px;
+    width: 18px;
+    /* height: 18px; */
+    height: normal;
+    margin: 0 13px 0 5px;
   }
   
   .text_2 {
@@ -72,22 +73,36 @@
     font-weight: 500;
     text-align: left;
     white-space: nowrap;
-    line-height: 36px;
-    margin: 25px 0 0 12px;
+    line-height: normal;
+    line-height: 17px;
+    margin: 0; 
+    /* line-height: 36px; */
+    /* margin: 25px 0 0 12px; */
   }
   
   .box_3 {
     background-color: rgba(255, 255, 255, 1);
     border-radius: 20px;
-    width: 100px;
+    width: 80px;
+    height: 40px;
+    margin: 14px 0px 0 300px;
+    display: flex;
+    align-items: center; /* 垂直居中对齐 */
+  }
+  .box_4 {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    width: 80px;
     height: 40px;
     margin: 14px 360px 0 39px;
+    display: flex;
+    align-items: center; /* 垂直居中对齐 */
   }
-  
   .thumbnail_2 {
     width: 18px;
-    height: 18px;
-    margin: 10px 0 0 20px;
+    /* height: 18px; */
+    height: normal;
+    margin: 0 13px 0 5px;
   }
   
   .text_3 {
@@ -100,8 +115,10 @@
     font-weight: 500;
     text-align: center;
     white-space: nowrap;
-    line-height: 36px;
-    margin: 13px 19px 0 12px;
+    line-height: 17px;
+    margin: 0; 
+    /* line-height: 36px; */
+    /* margin: 13px 19px 0 12px; */
   }
   
   .section_2 {
