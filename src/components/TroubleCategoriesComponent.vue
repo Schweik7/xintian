@@ -3,9 +3,9 @@
       <div
         v-for="(category, index) in troubleCategories"
         :key="index"
-        class="block flex-col"
+        :class="'flex-col block_'+(index+5)"
       >
-        <div class="image-text flex-row justify-between">
+        <div :class="'flex-row justify-between image-text_'+(index+9)">
           <img :class="'label_' + (index + 4)" :src="category.imageSrc" referrerpolicy="no-referrer" />
           <span :class="'text-group_' + (index + 1)">{{ category.title }}</span>
         </div>

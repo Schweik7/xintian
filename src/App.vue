@@ -3,8 +3,12 @@
       <HeaderComponent />
       <MainSectionComponent />
       <ContentComponent />
+      <div class="section_5 flex-col"></div>
       <TroubleCategoriesComponent />
+      <div class="section_7 flex-col"></div>
+      <div class="section_8 flex-col"></div>
       <ResearchTeamsComponent />
+      
       <FooterComponent />
     </div>
   </template>
