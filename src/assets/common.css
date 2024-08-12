@@ -1,76 +1,101 @@
-body * {
-    box-sizing: border-box;
-    flex-shrink: 0;
-  }
-  body {
-    font-family: PingFangSC-Regular, Roboto, Helvetica Neue, Helvetica, Tahoma,
-      Arial, PingFang SC-Light, Microsoft YaHei;
-  }
-  input {
-    background-color: transparent;
-    border: 0;
-  }
-  button {
-    margin: 0;
-    padding: 0;
-    border: 1px solid transparent;
-    outline: none;
-    background-color: transparent;
-  }
-  
-  button:active {
-    opacity: 0.6;
-  }
-  .van-nav-bar__left:active,
-  .van-nav-bar__right:active {
-    opacity: 1;
-  }
-  [class*='van-']::after {
-    border-bottom: 0;
-  }
-  .flex-col {
-    display: flex;
+body {
+  font-family: PingFangSC-Regular, Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+input,
+button {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: rgba(255, 218, 70, 0.8);
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header,
+.footer {
+  padding: 20px;
+  background-color: rgba(255, 237, 165, 1);
+}
+
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.your-troubles,
+.our-team,
+.footer-links {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.trouble-category {
+  margin: 20px;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .flex-row {
     flex-direction: column;
   }
-  .flex-row {
-    display: flex;
-    flex-direction: row;
+
+  .main-section {
+    flex-direction: column;
   }
-  .justify-start {
-    display: flex;
-    justify-content: flex-start;
+
+  .header-actions,
+  .footer-links {
+    flex-direction: column;
+    text-align: center;
   }
-  .justify-center {
-    display: flex;
-    justify-content: center;
+
+  .header-actions .header-action,
+  .footer-links div {
+    margin: 10px 0;
   }
-  
-  .justify-end {
-    display: flex;
-    justify-content: flex-end;
-  }
-  .justify-evenly {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  .justify-around {
-    display: flex;
-    justify-content: space-around;
-  }
-  .justify-between {
-    display: flex;
-    justify-content: space-between;
-  }
-  .align-start {
-    display: flex;
-    align-items: flex-start;
-  }
-  .align-center {
-    display: flex;
-    align-items: center;
-  }
-  .align-end {
-    display: flex;
-    align-items: flex-end;
-  }
-  
+}
