@@ -6,7 +6,7 @@
         <p>一个帮助你心理成长的空间</p>
         <button class="button">了解更多</button>
       </div>
-      <img class="main-image" src="./images/e301364da532ea7e1909f99fc017c855.png" alt="Main Image" />
+      <img class="main-image" src="../images/e301364da532ea7e1909f99fc017c855.png" alt="Main Image" />
     </section>
   </template>
   
