@@ -1,5 +1,6 @@
 .page {
     position: relative;
+    /* TODO：这个长度宽度先修改为适应 1920*1080 电脑屏幕的*/
     width: 1920px;
     height: 2464px;
     overflow: hidden;
@@ -9,8 +10,10 @@
     position: relative;
     width: 1920px;
     height: 2364px;
+    /* TODO：这个地方背景色是纯白 */
     background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/e5a35c9372843c493bedcf4812221656)
-      100% no-repeat;
+      100% no-repeat; 
+
     background-size: 100% 100%;
   }
   
