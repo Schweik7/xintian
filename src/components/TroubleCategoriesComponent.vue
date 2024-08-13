@@ -6,7 +6,7 @@
         :class="'flex-col block_'+(index+5)"
       >
         <div :class="'flex-row justify-between image-text_'+(index+9)">
-          <img :class="'label_' + (index + 4)" :src="category.imageSrc" referrerpolicy="no-referrer" />
+          <img :class="'label_' + (index + 4)" :src="category.imageSrc"   />
           <span :class="'text-group_' + (index + 1)">{{ category.title }}</span>
         </div>
         <span :class="'paragraph_' + (index + 4)">

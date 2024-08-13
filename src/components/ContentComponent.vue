@@ -15,8 +15,8 @@
         <Block4Component />
       </div>
       <div class="image-wrapper_4 flex-row justify-between">
-        <img class="image_5" referrerpolicy="no-referrer" src="@/images/2c255bd8a37885d892156609de8bc6cd.png" />
-        <img class="image_6" referrerpolicy="no-referrer" src="@/images/7a15b93dca0b0ab792b7a38a4af5147a.png" />
+        <img class="image_5"   src="@/images/2c255bd8a37885d892156609de8bc6cd.png" />
+        <img class="image_6"   src="@/images/7a15b93dca0b0ab792b7a38a4af5147a.png" />
       </div>
     </div>
   </template>

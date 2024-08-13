@@ -8,7 +8,7 @@
         </div>
         <span class="text_9">一个帮助你心理成长的空间</span>
       </div>
-      <img class="image_2" referrerpolicy="no-referrer" src="@/images/e301364da532ea7e1909f99fc017c855.png" />
+      <img class="image_2"   src="@/images/e301364da532ea7e1909f99fc017c855.png" />
     </div>
   </template>
   

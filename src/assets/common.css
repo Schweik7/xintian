@@ -38,27 +38,33 @@ body * {
   }
   .justify-start {
     display: flex;
+    /* 子元素集中在容器的起始位置 */
     justify-content: flex-start;
   }
   .justify-center {
     display: flex;
+    /* 子元素集中在容器的中间位置 */
     justify-content: center;
   }
   
   .justify-end {
     display: flex;
+    /* 子元素集中在容器的末尾位置 */
     justify-content: flex-end;
   }
   .justify-evenly {
     display: flex;
+    /* 等距间隔，边距为元素间距 */
     justify-content: space-evenly;
   }
   .justify-around {
     display: flex;
+    /* 等距间隔，边距为元素距离一半 */
     justify-content: space-around;
   }
   .justify-between {
     display: flex;
+    /* 等距间隔，紧贴边缘 */
     justify-content: space-between;
   }
   .align-start {

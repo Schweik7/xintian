@@ -8,7 +8,6 @@
       <div class="section_7 flex-col"></div>
       <div class="section_8 flex-col"></div>
       <ResearchTeamsComponent />
-      
       <FooterComponent />
     </div>
   </template>
