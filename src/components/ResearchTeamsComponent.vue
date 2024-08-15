@@ -48,7 +48,7 @@
           </div>
         </div>
       </div>
-      <img class="image_7" alt="心田网站"   src="@/images/8bcc87ed5ef6d39955ef99074dd2f8df.png" />
+      <!-- <img class="image_7" alt="心田网站"   src="@/images/8bcc87ed5ef6d39955ef99074dd2f8df.png" /> -->
       <span class="text_24">你的困扰</span>
       <img class="image_8" alt="我们的团队"   src="@/images/8a44b99755cf4086bbb142cc89b87f85.png" />
       <span class="text_25">我们的团队</span>
