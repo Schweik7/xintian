@@ -29,17 +29,21 @@ export default {
 #main-section {
   display: flex;
   align-items: center;
-  width: 64.9vw;
-  height: 25vh;
+  justify-content: space-between;
+  width: 80vw;
+  max-width: 1200px;
   margin: auto;
+  padding: 2vh 0;
+  flex-wrap: wrap;
 }
 
 #content-section {
-  height: 12vh;
-  width: auto;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center; /* 子元素水平居中 */
+  align-items: center;
+  text-align: center; /* 文本居中对齐 */
+  padding: 2vh;
 }
 
 #logo-image {
@@ -61,10 +65,8 @@ export default {
   margin-top: 1vh;
   background-color: hsl(47, 85%, 53%);
   border-radius: 21px;
-  translate: 0 0;
-  /* height: 2.5vh; */
-  /* border: 0.1vh solid rgba(255, 218, 70, 1); */
-  width: 17vw;
+  padding: 0.5vh 1vw;
+  width: auto;
 }
 
 .subtitle-text {
@@ -72,9 +74,8 @@ export default {
   font-size: 2.5vh;
   font-family: PingFang-SC-Medium;
   font-weight: 500;
-  text-align: justify;
-  margin:auto;
-  /* margin-top: 1vh; */
+  text-align: center;
+  margin: auto;
 }
 
 #learn-more-button {
@@ -88,8 +89,7 @@ export default {
   margin-top: 2vh;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: auto; /* 按钮宽度自动调整 */
-  align-self: center; /* 水平居中 */
+  width: auto;
 }
 
 #learn-more-button:hover {
@@ -98,6 +98,60 @@ export default {
 
 #illustration-image {
   width: auto;
-  height: 22vh;
+  height: 30vh;
+  max-height: 200px;
+  align-self: center;
+  margin: 2vh 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  #main-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 2vh 2vw;
+  }
+
+  #content-section {
+    order: 2;
+    text-align: center;
+  }
+
+  #illustration-image {
+    order: 1;
+    width: 80vw;
+    height: auto;
+    margin-bottom: 2vh;
+  }
+
+  #logo-image {
+    height: 6vh;
+  }
+
+  .title-text {
+    font-size: 3vh;
+  }
+
+  .subtitle-text {
+    font-size: 2vh;
+  }
+
+  #learn-more-button {
+    font-size: 2vh;
+    padding: 1vh 3vw;
+  }
+}
+
+@media (min-width: 769px) {
+  #main-section {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2vh 5vw;
+  }
+
+  #illustration-image {
+    order: 0;
+    margin-right: 5vw;
+  }
 }
 </style>

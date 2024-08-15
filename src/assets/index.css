@@ -24,44 +24,6 @@
     margin: 0.5vh 0 0.6vh 39.2vw;
 }
   
-.text_4 {
-    width: 4.2vw;
-    height: 0.8vh;
-    overflow-wrap: break-word;
-    color: rgba(102, 102, 102, 1);
-    font-size: 0.8vh;
-    font-family: PingFang-SC-Bold;
-    font-weight: 700;
-    text-align: center;
-    white-space: nowrap;
-}
-  
-.text_5 {
-    width: 4.1vw;
-    height: 0.8vh;
-    overflow-wrap: break-word;
-    color: rgba(102, 102, 102, 1);
-    font-size: 0.8vh;
-    font-family: PingFang-SC-Bold;
-    font-weight: 700;
-    text-align: center;
-    white-space: nowrap;
-    margin-left: 4.1vw;
-}
-  
-.text_6 {
-    width: 5vw;
-    height: 0.8vh;
-    overflow-wrap: break-word;
-    color: rgba(102, 102, 102, 1);
-    font-size: 0.8vh;
-    font-family: PingFang-SC-Bold;
-    font-weight: 700;
-    text-align: center;
-    white-space: nowrap;
-    margin-left: 4.1vw;
-}
-  
 .text_8 {
     width: 3.2vw;
     height: 0.8vh;
