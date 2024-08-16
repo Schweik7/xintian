@@ -9,6 +9,7 @@
       </div>
       <!-- 子标题 -->
       <div class="subtitle-wrapper align-center"> 
+
         <span class="subtitle-text">一个帮助你心理成长的空间</span>
       </div>
       <!-- 了解更多按钮 -->
@@ -23,6 +24,7 @@
 export default {
   name: 'MainSectionComponent',
 };
+// TODO  一个帮助你心理成长的空间 下面改为添加下划线
 </script>
 
 <style scoped>
@@ -67,6 +69,8 @@ export default {
   border-radius: 21px;
   padding: 0.5vh 1vw;
   width: auto;
+  /* height: 1vh;
+  margin-top: 3vh; */
 }
 
 .subtitle-text {
