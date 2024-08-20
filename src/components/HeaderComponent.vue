@@ -1,24 +1,46 @@
 <template>
-  <div class="header-section align-center">
-    <div class="top-row flex-row align-center justify-between">
-      <img class="logo" src="@/images/心田首页.png" alt="Logo" />
+  <div class="header-section container">
+    <div class="columns is-vcentered is-mobile">
+      <!-- Logo 部分 -->
+      <div class="column is-4-mobile is-4-desktop is-flex">
+        <img class="logo" src="@/images/心田首页.png" alt="Logo" />
+      </div>
 
-      <div class="header-actions flex-row align-center ">
-        <button id="help-btn" class="action-item flex-row align-center">
-          <img class="icon" src="@/images/帮助标志.png" alt="帮助" />
-          <span class="text">帮助</span>
+      <!-- Header Actions 部分 -->
+      <div class="column is-3-mobile is-offset-2-mobile is-3-desktop is-offset-6-desktop  is-flex is-justify-content-center header-actions">
+        <button id="help-btn" class="button is-light is-normal is-rounded ">  
+          <span class="icon-text">
+            <span class="icon">
+              <!-- <i class="fas fa-headset"></i> -->
+              <img src="@/assets/icons/user-headset.svg" alt="帮助" />
+            </span>
+            <span class="text">帮助</span>
+          </span>
         </button>
 
-        <button id="login-btn" class="action-item flex-row align-center">
-          <img class="icon" src="@/images/登录标志.png" alt="登录" />
-          <span class="text">登录</span>
+        <button id="login-btn" class="button is-light is-normal is-rounded ml-2">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="text">登录</span>
+          </span>
         </button>
       </div>
-    </div>
 
-    <div id="search-box" class="flex-row align-center justify-between">
-      <input type="text" class="search-input" placeholder="请输入搜索关键词" />
-      <img class="search-icon" src="@/images/搜索标志.png" alt="搜索" />
+      <!-- Search Box 部分 -->
+      <div id="search-box" class="column is-offset-1-mobile is-2-mobile is-2-desktop is-offset-3-desktop  field has-addons is-flex is-justify-content-center">
+        <p class="control">
+          <input class="input is-hidden-mobile" type="text" placeholder="请输入搜索关键词">
+        </p>
+        <p class="control">
+          <button class="button is-static">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </button>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -31,137 +53,75 @@ export default {
 
 <style scoped>
 .header-section {
-  width: 100vw;
-  padding: 0 5vw;
   background-color: rgba(255, 237, 165, 1);
-}
-
-.top-row {
-  display: flex;
-  align-items: center;
-  width: 70%;
-  /* margin-bottom: 1vh; */
+  padding: 1rem 5vw;
 }
 
 .logo {
-  width: 10vw;
+  width: 20vw;
   height: auto;
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 2vw;
-  margin-right: 5%;
-}
-
-.action-item {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border-radius: 20px;
-  padding: 5px 10px;
-  border: none;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.action-item:hover {
-  background-color: rgba(238, 238, 238, 1);
-}
-
 .icon {
-  width: 2vh;
-  height: 2vh;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .text {
-  font-family: PingFang-SC-Medium;
-  font-size: 1.5vh;
-  padding-left: 0.5vw;
+  padding-left: 0.5rem;
 }
 
-#search-box {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border-radius: 20px;
-  width: 15vw;
-  max-width: 250px;
-  height: 3.5vh;
+#search-box .input {
+  border-radius: 20px 0 0 20px;
   border: 1px solid rgba(238, 238, 238, 1);
-  padding-left: 10px;
-  margin: 0 auto;
 }
 
-/* 响应式设计 */
+#search-box .button {
+  border-radius: 0 20px 20px 0;
+}
+
 @media (max-width: 768px) {
+  .header-section {
+    padding: 1rem;
+  }
 
   .logo {
     width: 20vw;
-    max-width: 290px;
-    height: auto;
   }
 
-  .header-section {
-    flex-direction: column;
-    align-items: center;
-    padding: 0 5vw;
-  }
-
-  .top-row {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  #search-box {
-    width: 80vw;
-    margin-top: 1vh;
-  }
-
-  .icon {
-    width: 3vh;
-    height: 3vh;
-  }
-
-  .text {
+  .header-actions .text {
     display: none;
   }
+
+  #search-box .input {
+    display: none;
+  }
+  .text {
+  padding-left: 0rem;
+}
 }
 
 @media (min-width: 769px) {
-
   .header-section {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0 18.8vw;
-    height: 10vh;
   }
 
   .logo {
     width: 10vw;
-    max-width: 150px;
-  }
-
-  #search-box {
-    width: 30vw;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .header-actions {
-    gap: 2vw;
+    justify-content: flex-end;
   }
 
-  .icon {
-    width: 2.5vh;
-    height: 2.5vh;
+  #search-box {
+    justify-content: flex-end;
   }
 
-  .text {
-    display: inline;
+  #search-box .input {
+    display: block;
   }
 }
 </style>

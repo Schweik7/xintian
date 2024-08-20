@@ -30,6 +30,9 @@
       TroubleCategoriesComponent,
       FooterComponent,
     },
+    mounted() {
+    document.title = "心田"; // 在这里设置网站标题
+  }
   };
   </script>
   
