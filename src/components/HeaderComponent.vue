@@ -5,7 +5,7 @@
       <div class="column is-4-mobile is-4-desktop is-flex">
         <img class="logo" src="@/images/心田首页.png" alt="Logo" />
       </div>
-
+<!--  -->
       <!-- Header Actions 部分 -->
       <div class="column is-3-mobile is-offset-2-mobile is-3-desktop is-offset-6-desktop  is-flex is-justify-content-center header-actions">
         <button id="help-btn" class="button is-light is-normal is-rounded ">  
