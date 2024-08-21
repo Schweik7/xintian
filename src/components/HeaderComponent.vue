@@ -14,7 +14,7 @@
               <!-- <i class="fas fa-headset"></i> -->
               <img src="@/assets/icons/user-headset.svg" alt="帮助" />
             </span>
-            <span class="text">帮助</span>
+            <span class="is-hidden-mobile">帮助</span>
           </span>
         </button>
 
@@ -23,7 +23,7 @@
             <span class="icon">
               <i class="fas fa-user"></i>
             </span>
-            <span class="text">登录</span>
+            <span class="is-hidden-mobile">登录</span>
           </span>
         </button>
       </div>
@@ -96,9 +96,6 @@ export default {
   #search-box .input {
     display: none;
   }
-  .text {
-  padding-left: 0rem;
-}
 }
 
 @media (min-width: 769px) {
