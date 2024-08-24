@@ -3,11 +3,11 @@
       <HeaderComponent />
       <MainSectionComponent />
       <ContentComponent />
-      <div class="section_5 flex-col"></div>
+      <!-- <div class="section_5 flex-col"></div>
       <TroubleCategoriesComponent />
       <div class="section_7 flex-col"></div>
       <div class="section_8 flex-col"></div>
-      <ResearchTeamsComponent />
+      <ResearchTeamsComponent /> -->
       <FooterComponent />
     </div>
   </template>
@@ -26,8 +26,8 @@
       HeaderComponent,
       MainSectionComponent,
       ContentComponent,
-      ResearchTeamsComponent,
-      TroubleCategoriesComponent,
+      // ResearchTeamsComponent,
+      // TroubleCategoriesComponent,
       FooterComponent,
     },
     mounted() {

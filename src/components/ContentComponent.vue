@@ -1,53 +1,57 @@
 <template>
   <section class="section">
     <div class="container">
-      <!-- 卡片展示区 -->
-      <div class="card-container">
-        <div v-for="(block, index) in blocks" :key="index" :class="['block-wrapper', { 'is-focused': currentBlock === index }]" :style="getCardStyle(index)">
-          <div class="block-content">
-            <div class="block-header">
-              <div class="block-title">
-                <span class="is-size-5">{{ block.headerTitle }}</span>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-image">
-                <figure class="image">
-                  <img :src="block.image" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img :src="block.icon" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4">{{ block.title }}</p>
-                  </div>
-                </div>
-                <div class="content">
-                  {{ block.description }}
-                  <br>
-                  <button class="button is-primary mt-4">{{ block.buttonText }}</button>
-                </div>
-              </div>
-            </div>
-          </div>
+      <!-- Section 标题展示，使用v-for -->
+      <div class="level">
+        <div class="level-item section-header is-mobile" v-for="(section, index) in sections" :key="index">
+          <span>{{ section.title }}</span>
         </div>
       </div>
 
       <!-- 左右箭头 -->
-      <div class="columns is-mobile is-centered mt-5">
-        <div class="column is-narrow">
+      <div class="columns is-centered mt-2 arrows-container">
+        <div class="column is-narrow arrow-left">
           <button class="button is-light" @click="prevBlock">
             <span class="icon">
               <i class="fas fa-arrow-left"></i>
             </span>
           </button>
         </div>
-        <div class="column is-narrow">
+
+        <!-- 卡片展示区 -->
+        <div class="column card-container">
+          <div v-for="(block, index) in currentSection.blocks" :key="index"
+            :class="['block-wrapper', { 'is-focused': currentBlock === index }]" :style="getBlockStyle(index)">
+            <div class="block-content">
+              <div class="image-container mb-2">
+                <figure>
+                  <img :src="block.image" alt="Placeholder image" />
+                </figure>
+              </div>
+              <div class="media media-center">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img :src="block.icon" alt="Placeholder image" />
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">{{ block.title }}</p>
+                </div>
+              </div>
+              <div class="content">
+                <p class="subtitle is-5">{{ block.description }}</p>
+                <div class="button-container">
+                  <button class="button is-primary">
+                    {{ block.buttonText }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右箭头 -->
+        <div class="column is-narrow arrow-right">
           <button class="button is-light" @click="nextBlock">
             <span class="icon">
               <i class="fas fa-arrow-right"></i>
@@ -71,62 +75,85 @@ import image3_1 from '@/images/VR测试图标.png';
 export default {
   data() {
     return {
-      // 当前聚焦的 block 索引
-      currentBlock: 0,
-      // 定义 blocks 数组，每个 block 表示一个独立的内容块
-      blocks: [
+      currentSectionIndex: 0, // 当前展示的 section 索引
+      currentBlock: 0, // 当前聚焦的 block 索引
+      sections: [
         {
-          headerTitle: '心灵蜕变驿站',
-          title: '心理学堂',
-          description: '在这里，用户可以接触到丰富的心理学知识，包括心理发展的基础知识、常见心理问题的原因、症状以及对应策略。',
-          buttonText: '立即体验',
-          image: image1,
-          icon: image1_1
+          title: '心灵探索馆',
+          blocks: [
+            {
+              title: '心理量表测试',
+              description: '认真探索“我是谁”',
+              buttonText: '立即体验',
+              image: image2,
+              icon: image2_1
+            },
+            {
+              title: 'VR测试',
+              description: '沉浸倾听“心声世界”',
+              buttonText: '立即体验',
+              image: image3,
+              icon: image3_1
+            },
+            {
+              title: '心理学堂',
+              description: '轻松掌握心理小贴士',
+              buttonText: '立即体验',
+              image: image1,
+              icon: image1_1
+            }
+          ]
         },
         {
-          headerTitle: '心灵探索馆',
-          title: '量表测试',
-          description: '提供经典心理测评问卷，如：抑郁症、焦虑症、强迫症等，帮助用户了解自身心理状况。',
-          buttonText: '立即体验',
-          image: image2,
-          icon: image2_1
+          title: '身心研究所',
+          blocks: [
+            // Add blocks for 身心研究所 here
+          ]
         },
         {
-          headerTitle: '身心研究所',
-          title: 'VR测试',
-          description: '自主研发VR评估场景（如情景测验）等，提高测评的信效度，减轻心理老师等相关工作者的工作压力。',
-          buttonText: '立即体验',
-          image: image3,
-          icon: image3_1
+          title: '心灵加油站',
+          blocks: [
+            // Add blocks for 心灵加油站 here
+          ]
         }
       ]
     };
   },
+  computed: {
+    currentSection() {
+      return this.sections[this.currentSectionIndex];
+    }
+  },
   methods: {
-    // 切换到下一个 block
     nextBlock() {
-      console.log("下一内容块");  // 日志记录
-      this.currentBlock = (this.currentBlock + 1) % this.blocks.length;
+      this.currentBlock = (this.currentBlock + 1) % this.currentSection.blocks.length;
     },
-    // 切换到上一个 block
     prevBlock() {
-      console.log("上一内容块");  // 日志记录
-      this.currentBlock = (this.currentBlock - 1 + this.blocks.length) % this.blocks.length;
+      this.currentBlock = (this.currentBlock - 1 + this.currentSection.blocks.length) % this.currentSection.blocks.length;
     },
-    // 根据索引计算卡片的样式
-    getCardStyle(index) {
-      const distance = Math.abs(this.currentBlock - index);
+    getBlockStyle(index) {
+      const distance = this.currentBlock === index ? 0 : 2;
       return {
         transform: `scale(${1 - 0.1 * distance})`,
         opacity: distance > 1 ? 0.5 : 1,
         zIndex: 10 - distance
       };
     }
-  }
+  },
+  mounted() {
+    window.vm = this;
+  },
 };
 </script>
 
 <style scoped>
+/* Section 标题的样式 */
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
 /* 卡片容器的样式 */
 .card-container {
   display: flex;
@@ -134,6 +161,7 @@ export default {
   align-items: center;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 /* 每个卡片的基础样式 */
@@ -143,42 +171,96 @@ export default {
   width: 30%;
   min-width: 250px;
   margin: 0 10px;
+  z-index: 1;
 }
 
 /* 聚焦的卡片样式 */
 .is-focused {
   transform: scale(1.1);
-  z-index: 20;
+  z-index: 2;
 }
 
-/* 卡片内容的样式调整 */
-.card-content {
+/* 左右箭头的样式 */
+.arrows-container {
   position: relative;
-  top: -20px;
-  z-index: 1;
-  background-color: white;
-  padding-top: 40px;
+  z-index: 3;
 }
 
-/* 调整卡片图片的位置，使其部分溢出卡片内容的容器 */
-.card-image figure {
-  margin-top: -40px;
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
 }
 
-.block-header {
+.arrow-left {
+  left: 0;
+}
+
+.arrow-right {
+  right: 0;
+}
+
+/* 调整图片大小，确保图片高度一致 */
+.image-container figure {
+  height: 170px;
+  /* 设置统一的高度 */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  height: 100%;
+  /* 保持图片高度一致 */
+  width: auto;
+  /* 保持图片的纵横比 */
+}
+
+/* 居中媒体元素 */
+.media-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  /* 横向排列 */
+}
+
+.media-content {
+  margin-left: 10px;
+  flex-grow: 0;
+  /* 自适应宽度 */
+  white-space: nowrap;
+  /* 防止文字换行 */
+}
+
+/* 卡片描述居中 */
+.content .subtitle {
   text-align: center;
-  margin-bottom: 1rem;
+}
+
+/* 将按钮放在右下角 */
+.button-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* 在小屏幕上调整卡片的宽度 */
 @media (max-width: 768px) {
   .block-wrapper {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
   }
 
   .card-container {
     flex-direction: column;
+  }
+
+  .arrow-left,
+  .arrow-right {
+    top: 70%;
   }
 }
 </style>
