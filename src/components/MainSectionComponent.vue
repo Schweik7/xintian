@@ -5,23 +5,34 @@
       <div id="main-section-left" class="level-item">
         <div class="columns is-flex-direction-column">
           <div class="column is-flex is-align-items-center is-justify-content-center">
-            <span class="title-text">欢迎来到</span>
-            <img id="logo-image" src="@/images/心田首页.png" />
-            <span class="title-text">网站</span>
+            <span class="title-text animate-item">欢迎来到</span>
+            <img id="logo-image" class="animate-item" src="@/images/心田首页.png" />
+            <span class="title-text animate-item">网站</span>
           </div>
           <!-- 子标题 -->
           <div class="column has-text-centered">
             <div class="subtitle-wrapper">
-              <span class="subtitle-text">一个帮助你心理成长的空间</span>
+              <!-- 通过 v-for 动态插入 .char 元素 -->
+              <span class="subtitle-text" ref="subtitleText">
+                <span
+                  v-for="(char, index) in subtitleText"
+                  :key="index"
+                  class="char"
+                  :style="{ animationDelay: `${index * 0.1}s` }"
+                >{{ char }}</span>
+              </span>
             </div>
           </div>
           <div class="column has-text-centered">
-            <button id="learn-more-button" class="button is-warning">了解更多</button>
+            <button id="learn-more-button" class="button is-warning hvr-icon-wobble-horizontal">
+              <span>了解更多</span>
+              <span class="icon">
+                <i class="fa fa-arrow-right hvr-icon"></i>
+              </span>
+            </button>
           </div>
         </div>
       </div>
-
-      <!-- 了解更多按钮 -->
 
       <!-- 右侧图片 -->
       <div class="level-item is-centered">
@@ -34,12 +45,33 @@
 <script>
 export default {
   name: 'MainSectionComponent',
+  data() {
+    return {
+      subtitleText: '一个帮助你心理成长的空间'.split(''), // 将子标题文本分割为单个字符数组
+    };
+  },
+  mounted() {
+    this.applyAnimation();
+  },
+  methods: {
+    applyAnimation() {
+      // 设置 .animate-item（包括 .title-text 和 #logo-image） 的动画延迟
+      const animateItems = document.querySelectorAll('.animate-item');
+      animateItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.3}s`; // 假设每个元素间隔 0.5s
+      });
+    },
+  },
 };
 </script>
 
+<style>
+
+</style>
+
 <style scoped>
 #main-section {
-  padding: 2vh 5vw;
+  padding: 2vh 4vw;
 }
 
 #logo-image {
@@ -58,18 +90,44 @@ export default {
 
 .subtitle-wrapper {
   margin-top: 1vh;
-  background-color: hsl(47, 85%, 53%);
+  background-color: rgb(255, 253, 237);
   border-radius: 21px;
   padding: 0.5vh 1vw;
+  overflow: visible;
+  /* 允许内部元素溢出 */
 }
 
 .subtitle-text {
-  color: rgba(153, 153, 153, 1);
+  color: hwb(150 19% 78%);
   font-size: 2.5vh;
   font-family: "PingFang SC", sans-serif;
   font-weight: 500;
+  display: inline-block;
+  overflow: visible;
+  /* 允许内部元素溢出 */
+}
+span.char, .animate-item {
+  display: inline-block;
+  opacity: 0;
+  animation-name: fadeInUp;
+  animation-duration: 2s; /* 与标题和图像一致的持续时间 */
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
 #learn-more-button {
   padding: 1vh 2vw;
   font-size: 2vh;

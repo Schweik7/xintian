@@ -2,27 +2,29 @@
   <section class="section">
     <div class="container">
       <!-- Section 标题展示，使用v-for -->
-      <div class="level">
+      <div class="level is-mobile">
         <div class="level-item section-header is-mobile" v-for="(section, index) in sections" :key="index">
-          <span>{{ section.title }}</span>
+          <!-- 如果index是0则放大一点，否则是3 -->
+          <p v-if="index === 0" class="title is-4 has-text-black-bis">{{ section.title }}</p>
+          <p v-else class="title is-6 has-text-grey-light">{{ section.title }}</p>
         </div>
       </div>
 
       <!-- 左右箭头 -->
       <div class="columns is-centered mt-2 arrows-container">
-        <div class="column is-narrow arrow-left">
+        <div class="column is-narrow arrow-left is-hidden-mobile">
           <button class="button is-light" @click="prevBlock">
             <span class="icon">
               <i class="fas fa-arrow-left"></i>
             </span>
           </button>
         </div>
-
+        <!-- TODO 允许图片偏移溢出到下面的容器 -->
         <!-- 卡片展示区 -->
         <div class="column card-container">
           <div v-for="(block, index) in currentSection.blocks" :key="index"
             :class="['block-wrapper', { 'is-focused': currentBlock === index }]" :style="getBlockStyle(index)">
-            <div class="block-content">
+            <div class="block-content" @click="currentBlock = index">
               <div class="image-container mb-2">
                 <figure>
                   <img :src="block.image" alt="Placeholder image" />
@@ -41,7 +43,7 @@
               <div class="content">
                 <p class="subtitle is-5">{{ block.description }}</p>
                 <div class="button-container">
-                  <button class="button is-primary">
+                  <button class="button is-primary hvr-rectangle-in">
                     {{ block.buttonText }}
                   </button>
                 </div>
@@ -52,7 +54,7 @@
 
         <!-- 右箭头 -->
         <div class="column is-narrow arrow-right">
-          <button class="button is-light" @click="nextBlock">
+          <button class="button is-light is-hidden-mobile" @click="nextBlock">
             <span class="icon">
               <i class="fas fa-arrow-right"></i>
             </span>
@@ -81,27 +83,28 @@ export default {
         {
           title: '心灵探索馆',
           blocks: [
+          {
+              title: '心理学堂',
+              description: '轻松掌握心理小贴士',
+              buttonText: '立即体验',
+              image: image1,
+              icon: image1_1
+            },
             {
-              title: '心理量表测试',
+              title: '心理量表',
               description: '认真探索“我是谁”',
               buttonText: '立即体验',
               image: image2,
               icon: image2_1
             },
             {
-              title: 'VR测试',
+              title: 'VR心理游戏',
               description: '沉浸倾听“心声世界”',
               buttonText: '立即体验',
               image: image3,
               icon: image3_1
             },
-            {
-              title: '心理学堂',
-              description: '轻松掌握心理小贴士',
-              buttonText: '立即体验',
-              image: image1,
-              icon: image1_1
-            }
+
           ]
         },
         {
@@ -154,13 +157,23 @@ export default {
   font-weight: bold;
 }
 
+.section {
+  /* background-color: hwb(132 91% 7% / 0.883); */
+  background-color: rgb(255, 253, 237);
+}
+
+.level{
+
+}
+
 /* 卡片容器的样式 */
 .card-container {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow: visible; /* 允许内部元素溢出 */
   z-index: 1;
 }
 
@@ -178,6 +191,7 @@ export default {
 .is-focused {
   transform: scale(1.1);
   z-index: 2;
+  background-color: #faffa5;
 }
 
 /* 左右箭头的样式 */
@@ -241,10 +255,9 @@ export default {
   text-align: center;
 }
 
-/* 将按钮放在右下角 */
 .button-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 /* 在小屏幕上调整卡片的宽度 */

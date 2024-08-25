@@ -1,7 +1,7 @@
 .page {
     position: relative;
     width: 100vw;
-    height: 128vh;
+    /* height: 128vh; */
     overflow: hidden;
 }
   
