@@ -1,38 +1,33 @@
 <template>
-    <div class="page flex-col">
-      <HeaderComponent />
-      <MainSectionComponent />
-      <ContentComponent />
-      <!-- <div class="section_5 flex-col"></div>
-      <TroubleCategoriesComponent />
-      <div class="section_7 flex-col"></div>
-      <div class="section_8 flex-col"></div>
-      <ResearchTeamsComponent /> -->
-      <FooterComponent />
-    </div>
-  </template>
-  
-  <script>
-  import HeaderComponent from './components/HeaderComponent.vue';
-  import MainSectionComponent from './components/MainSectionComponent.vue';
-  import ContentComponent from './components/ContentComponent.vue';
-  import TroubleCategoriesComponent from './components/TroubleCategoriesComponent.vue';
-  import ResearchTeamsComponent from './components/ResearchTeamsComponent.vue';
-  import FooterComponent from './components/FooterComponent.vue';
-  
-  export default {
-    name: 'App',
-    components: {
-      HeaderComponent,
-      MainSectionComponent,
-      ContentComponent,
-      // ResearchTeamsComponent,
-      // TroubleCategoriesComponent,
-      FooterComponent,
-    },
-    mounted() {
+  <div class="page flex-col">
+    <HeaderComponent />
+    <MainSectionComponent />
+    <ContentComponent />
+    <TopicsComponent />
+
+    <FooterComponent />
+  </div>
+</template>
+
+<script>
+import HeaderComponent from './components/HeaderComponent.vue';
+import MainSectionComponent from './components/MainSectionComponent.vue';
+import ContentComponent from './components/ContentComponent.vue';
+
+import FooterComponent from './components/FooterComponent.vue';
+import TopicsComponent from './components/TopicsComponent.vue';
+
+export default {
+  name: 'App',
+  components: {
+    HeaderComponent,
+    MainSectionComponent,
+    ContentComponent,
+    TopicsComponent,
+    FooterComponent,
+  },
+  mounted() {
     document.title = "心田"; // 在这里设置网站标题
   }
-  };
-  </script>
-  
+};
+</script>
