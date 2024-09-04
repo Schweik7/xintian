@@ -14,12 +14,8 @@
             <div class="subtitle-wrapper">
               <!-- 通过 v-for 动态插入 .char 元素 -->
               <span class="subtitle-text" ref="subtitleText">
-                <span
-                  v-for="(char, index) in subtitleText"
-                  :key="index"
-                  class="char"
-                  :style="{ animationDelay: `${index * 0.1}s` }"
-                >{{ char }}</span>
+                <span v-for="(char, index) in subtitleText" :key="index" class="char"
+                  :style="{ animationDelay: `${index * 0.1}s` }">{{ char }}</span>
               </span>
             </div>
           </div>
@@ -36,7 +32,7 @@
 
       <!-- 右侧图片 -->
       <div class="level-item is-centered">
-        <img id="illustration-image" src="@/images/舒适交谈倾听.png" />
+        <img id="illustration-image" src="@/images/心灵之田.png" />
       </div>
     </div>
   </div>
@@ -47,7 +43,7 @@ export default {
   name: 'MainSectionComponent',
   data() {
     return {
-      subtitleText: '一个帮助你心理成长的空间'.split(''), // 将子标题文本分割为单个字符数组
+      subtitleText: '一个我们的秘密基地'.split(''), // 将子标题文本分割为单个字符数组
     };
   },
   mounted() {
@@ -65,9 +61,7 @@ export default {
 };
 </script>
 
-<style>
-
-</style>
+<style></style>
 
 <style scoped>
 #main-section {
@@ -90,11 +84,23 @@ export default {
 
 .subtitle-wrapper {
   margin-top: 1vh;
-  background-color: rgb(255, 253, 237);
+  /* background-color: rgb(255, 253, 237);
   border-radius: 21px;
-  padding: 0.5vh 1vw;
+  padding: 0.5vh 1vw; */
+  display: inline-block;
   overflow: visible;
   /* 允许内部元素溢出 */
+}
+
+.subtitle-wrapper::after {
+  content: '';
+  display: block;
+  height: 14px;
+  /* 下划线的厚度 */
+  background: linear-gradient(to right, transparent, hsl(48, 97%, 73%), transparent);
+  /* 渐变效果 */
+  margin-top: -4px;
+  /* 下划线与标题的距离 */
 }
 
 .subtitle-text {
@@ -106,11 +112,14 @@ export default {
   overflow: visible;
   /* 允许内部元素溢出 */
 }
-span.char, .animate-item {
+
+span.char,
+.animate-item {
   display: inline-block;
   opacity: 0;
   animation-name: fadeInUp;
-  animation-duration: 2s; /* 与标题和图像一致的持续时间 */
+  animation-duration: 2s;
+  /* 与标题和图像一致的持续时间 */
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
 }
@@ -128,6 +137,7 @@ span.char, .animate-item {
     transform: translate3d(0, 0, 0);
   }
 }
+
 #learn-more-button {
   padding: 1vh 2vw;
   font-size: 2vh;

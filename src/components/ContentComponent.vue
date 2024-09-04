@@ -5,7 +5,7 @@
       <div class="level is-mobile">
         <div class="level-item section-header is-mobile" v-for="(section, index) in sections" :key="index">
           <!-- 如果index是0则放大一点，否则是3 -->
-          <p v-if="index === 0" class="title is-4 has-text-black-bis">{{ section.title }}</p>
+          <p v-if="index === 0" class="title is-4 has-text-black-bis focusing-title">{{ section.title }}</p>
           <p v-else class="title is-6 has-text-grey-light">{{ section.title }}</p>
         </div>
       </div>
@@ -46,7 +46,7 @@
             <div class="content">
               <p class="subtitle is-5 card-description">{{ block.description }}</p>
               <div class="button-container">
-                <button class="button is-primary hvr-rectangle-in card-button">
+                <button class="button hvr-rectangle-in card-button is-warning">
                   {{ block.buttonText }}
                 </button>
               </div>
@@ -223,4 +223,57 @@ export default {
     flex-direction: column;
   }
 }
+
+
+/* Rectangle In */
+.hvr-rectangle-in {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  background: #f5ab00;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-rectangle-in:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #e1e1e1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-rectangle-in:hover, .hvr-rectangle-in:focus, .hvr-rectangle-in:active {
+  color: black;
+}
+.hvr-rectangle-in:hover:before, .hvr-rectangle-in:focus:before, .hvr-rectangle-in:active:before {
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.focusing-title::after {
+  content: '';
+  display: block;
+  height: 8px;
+  /* 下划线的厚度 */
+  background: linear-gradient(to right, transparent, hwb(48 44% 10%), transparent);
+  /* 渐变效果 */
+  margin-top: -4px;
+  /* 下划线与标题的距离 */
+}
+
 </style>
