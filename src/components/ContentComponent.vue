@@ -5,13 +5,13 @@
       <div class="level is-mobile">
         <div class="level-item section-header is-mobile" v-for="(section, index) in sections" :key="index">
           <!-- 如果index是0则放大一点，否则是3 -->
-          <p v-if="index === 0" class="title is-4 has-text-black-bis focusing-title">{{ section.title }}</p>
+          <p v-if="index === 0" class="title is-5 has-text-black-bis focusing-title">{{ section.title }}</p>
           <p v-else class="title is-6 has-text-grey-light">{{ section.title }}</p>
         </div>
       </div>
 
       <!-- 使用 ElementUI 的走马灯组件 -->
-      <el-carousel :interval="4000" indicator-position="outside" arrow="always"
+      <el-carousel :interval="4000" :indicator-position="globalLayoutConfig.carouselIndicatorPosition" arrow="always"
         :height="globalLayoutConfig.responsiveHeight" type="card" :motion-blur="false" :cardScale="0.4"
         @change="handleCarouselChange">
         <!-- 卡片展示区 -->
@@ -167,7 +167,8 @@ export default {
 .image-container img {
   height: 100%;
   width: auto;
-  display: block; /* 清除图片底部的空隙 */
+  display: block;
+  /* 清除图片底部的空隙 */
 }
 
 /* 居中媒体元素 */
@@ -203,14 +204,11 @@ export default {
 
 /* 在小屏幕上调整卡片的宽度 */
 @media (max-width: 768px) {
-  .block-wrapper {
-    width: 100%;
-    margin: 0 auto;
+
+  .image-container figure {
+    height: 120px;
   }
 
-  .card-container {
-    flex-direction: column;
-  }
 }
 
 

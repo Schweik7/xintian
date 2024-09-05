@@ -38,7 +38,7 @@
             <!-- 右侧热门话题列表 -->
             <el-col :xs="20" :sm="19" :md="19" :lg="19" :xl="19">
                 <div class="content">
-                    <el-row :gutter="responsiveGutter" v-for="(item, index) in sortedTopics" :key="index" class="box">
+                    <el-row :gutter="globalLayoutConfig.gutter" v-for="(item, index) in sortedTopics" :key="index" class="box">
                         <!-- 标签列 -->
                         <el-col :xs="2" :sm="2" :md="2" :lg="2" :xl="2" class="is-flex is-align-items-center">
                             <span class="tag" :style="{ backgroundColor: tagColors[index] }">{{ index + 1 }}</span>
@@ -116,7 +116,6 @@ export default {
             iconInView: Array(8).fill(false), // 新增，用于控制图标动画
             observer: null, // 新增，Intersection Observer
             isAnimating: Array(8).fill(false), // 新增，用于跟踪动画播放状态
-            // responsiveGutter: 20, // 默认 gutter 值
             topics: [
                 { title: '三省吾身（自我）', icon: 'line-md:account', color: '#4682b4', hot: true },
                 { title: '书山有路（校园）', icon: 'line-md:compass', color: '#9EB446' },
@@ -170,7 +169,6 @@ export default {
         },
         // 按点赞数量排序后的前5个问题
         sortedTopics() {
-            // console.log('topics data:',this.hotTopics[this.selectedTopic]);
             // 注意数据可能为空
             return this.hotTopics[this.selectedTopic] ? this.hotTopics[this.selectedTopic]
                 .slice()
@@ -237,33 +235,20 @@ export default {
             }, 1000); // 假设动画最长为 1 秒，调整此值以适应实际动画持续时间
         },
         resetIconAnimation(el) {
-            // 查找元素中的 <animate> 和 <set> 元素并结束动画
             const animateElements = el.querySelectorAll('animate, set'); // 获取所有 animate 和 set 元素
             animateElements.forEach((animate) => {
-                // 可以考虑通过修改属性来实现视觉上停止动画的效果
             });
         },
-        // updateGutter() {
-        //     const width = window.innerWidth;
-        //     if (width < 768) { // 移动端宽度判断
-        //         this.responsiveGutter = 5; // 设置小一点的 gutter
-        //     } else {
-        //         this.responsiveGutter = 20; // 默认 gutter
-        //     }
-        // },
         loadMore() {
         }
     },
     mounted() {
         this.setupObserver(); // 初始化观察者
-        // window.addEventListener('resize', this.updateGutter);
-        // this.updateGutter(); // 初始化时更新 gutter
     },
     beforeDestroy() {
         if (this.observer) {
             this.observer.disconnect();
         }
-        // window.removeEventListener('resize', this.updateGutter);
     },
 
 };
@@ -377,19 +362,22 @@ export default {
 /* 移动端响应式 */
 @media screen and (max-width: 768px) {
     .el-row.box {
-        /* padding:13 13 13 6px; */
         padding-left: 6px;
     }
 
     .menu-item {
-        /* padding-right: 0px ; */
-        /* width: 80%; */
-        /* margin-right: 5rem; */
         margin-left: -7%;
     }
 
     .icon-button>button.el-button {
         padding: 0 0px;
+    }
+
+    .topics-title{
+        font-size: 23px;
+    }
+    .subtitle{
+        font-size: 19px;
 
     }
 }

@@ -21,7 +21,7 @@
           </ul>
         </div>
         <!-- 联系我们 -->
-         <!-- TODO 添加icons -->
+        <!-- TODO 添加icons -->
         <div class="column">
           <p class="title is-6">联系我们</p>
           <ul>
@@ -34,12 +34,13 @@
       <div class="content has-text-centered mt-5 ">
         <hr>
         <p class="">&#64; 2024 心田网站。专注于心理健康和个人成长。</p>
-        <a class="has-text-grey-light" href="https://beian.miit.gov.cn/" target="_blank"
+        <a class="has-text-grey-light footer_text" href="https://beian.miit.gov.cn/" target="_blank"
           rel="external nofollow">京ICP备2024070904号-1</a> · <a
           href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42018502002747" target="_blank"
-          rel="external nofollow" class="has-text-grey-light">京公网安备42018502002747号</a>
-        <br><a href="#" class="has-text-grey-light">心田举报入口</a> · <a class="has-text-grey-light" target="_blank"
-          href="https://www.12377.cn/">网信办违法和不良信息举报中心</a> · <a target="_blank" class="has-text-grey-light"
+          class="has-text-grey-light footer_text">京公网安备42018502002747号</a>
+        <br><a href="#" class="has-text-grey-light footer_text">心田举报入口</a> · <a class="has-text-grey-light footer_text"
+          target="_blank" href="https://www.12377.cn/">网信办违法和不良信息举报中心</a> · <a target="_blank"
+          class="has-text-grey-light footer_text"
           href="https://www.12377.cn/jbxzxq/64d38691937611ebb858c9da04cf59d3_web.html?spm=zm1033-001.0.0.1.SOXBdI&smallHarmType=64d38691937611ebb858c9da04cf59d3">涉历史虚无主义有害信息举报专区</a>
       </div>
     </div>
@@ -90,5 +91,11 @@ hr {
   border: none;
   border-top: 1px solid #e0e0e0;
   margin: 1.5rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .footer_text {
+    font-size: 13px;
+  }
 }
 </style>

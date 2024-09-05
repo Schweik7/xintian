@@ -105,6 +105,12 @@ export default {
   #search-box .input {
     display: none;
   }
+  span.icon {
+    /* margin-left: 50%; */
+    /* margin-right: 10px; */
+    margin-inline-start:0px;
+    --bulma-button-padding-horizontal: 0rem;
+}
 }
 
 @media (min-width: 769px) {
@@ -129,5 +135,7 @@ export default {
   #search-box .input {
     display: block;
   }
+
+
 }
 </style>

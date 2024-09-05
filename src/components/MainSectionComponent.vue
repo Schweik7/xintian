@@ -165,11 +165,11 @@ span.char,
   }
 
   .title-text {
-    font-size: 3vh;
+    font-size: 4vh;
   }
 
   .subtitle-text {
-    font-size: 2vh;
+    font-size: 3vh;
   }
 
   #learn-more-button {
