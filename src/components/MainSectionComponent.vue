@@ -77,7 +77,7 @@ export default {
 .title-text {
   color: rgba(51, 51, 51, 1);
   font-size: 3.5vh;
-  font-family: "PingFang SC", sans-serif;
+  font-family: "PingFang-SC-Heavy", sans-serif;
   font-weight: 900;
   white-space: nowrap;
 }
@@ -106,7 +106,7 @@ export default {
 .subtitle-text {
   color: hwb(150 19% 78%);
   font-size: 2.5vh;
-  font-family: "PingFang SC", sans-serif;
+  font-family: "PingFang-SC-Medium", sans-serif;
   font-weight: 500;
   display: inline-block;
   overflow: visible;

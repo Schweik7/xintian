@@ -16,6 +16,7 @@ import ContentComponent from './components/ContentComponent.vue';
 
 import FooterComponent from './components/FooterComponent.vue';
 import TopicsComponent from './components/TopicsComponent.vue';
+import 'element-plus/theme-chalk/display.css';
 
 export default {
   name: 'App',

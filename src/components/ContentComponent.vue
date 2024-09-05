@@ -11,24 +11,13 @@
       </div>
 
       <!-- 使用 ElementUI 的走马灯组件 -->
-      <el-carousel
-        :interval="4000"
-        indicator-position="outside"
-        arrow="always"
-        height="500"
-        type="card"
-        :motion-blur="false"
-        :cardScale="0.4"
-        @change="handleCarouselChange"
-      >
+      <el-carousel :interval="4000" indicator-position="outside" arrow="always"
+        :height="globalLayoutConfig.responsiveHeight" type="card" :motion-blur="false" :cardScale="0.4"
+        @change="handleCarouselChange">
         <!-- 卡片展示区 -->
-        <el-carousel-item
-          v-for="(block, index) in currentSection.blocks"
-          :key="index"
-          :name="index.toString()"
-        >
+        <el-carousel-item v-for="(block, index) in currentSection.blocks" :key="index" :name="index.toString()">
           <div class="block-content">
-            <div class="image-container mb-2">
+            <div class="image-container mb-3">
               <figure>
                 <img :src="block.image" alt="Placeholder image" />
               </figure>
@@ -60,8 +49,7 @@
 
 <script>
 import { ElCarousel, ElCarouselItem } from 'element-plus';
-// import 'element-ui/lib/theme-chalk/index.css';
-// import { ElMessage } from "element-plus";
+import { inject } from 'vue';
 // 导入图片资源
 import image1 from '@/images/心理学堂.png';
 import image2 from '@/images/量表测试.png';
@@ -110,27 +98,27 @@ export default {
         {
           title: '心灵加油站',
           blocks: [
-            // Add blocks for 心灵加油站 here
           ]
         }
       ]
     };
   },
+  setup() {
+    const globalLayoutConfig = inject('globalLayoutConfig');
+    return {
+      globalLayoutConfig,
+    };
+  },
   computed: {
     currentSection() {
-      let curSection=this.sections[this.currentSectionIndex]
-      // console.log(curSection.blocks[0].title);
+      let curSection = this.sections[this.currentSectionIndex]
       return curSection;
     }
   },
   methods: {
     handleCarouselChange(newIndex, oldIndex) {
-      // console.log(`newIndex: ${newIndex}, oldIndex: ${oldIndex}`);
       this.currentBlock = newIndex;
     }
-  },
-  mounted() {
-    window.vm = this;
   },
 };
 </script>
@@ -170,7 +158,7 @@ export default {
 /* 调整图片大小，确保图片高度一致 */
 .image-container figure {
   height: 170px;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,6 +167,7 @@ export default {
 .image-container img {
   height: 100%;
   width: auto;
+  display: block; /* 清除图片底部的空隙 */
 }
 
 /* 居中媒体元素 */
@@ -239,6 +228,7 @@ export default {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
+
 .hvr-rectangle-in:before {
   content: "";
   position: absolute;
@@ -257,10 +247,16 @@ export default {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.hvr-rectangle-in:hover, .hvr-rectangle-in:focus, .hvr-rectangle-in:active {
+
+.hvr-rectangle-in:hover,
+.hvr-rectangle-in:focus,
+.hvr-rectangle-in:active {
   color: black;
 }
-.hvr-rectangle-in:hover:before, .hvr-rectangle-in:focus:before, .hvr-rectangle-in:active:before {
+
+.hvr-rectangle-in:hover:before,
+.hvr-rectangle-in:focus:before,
+.hvr-rectangle-in:active:before {
   -webkit-transform: scale(0);
   transform: scale(0);
 }
@@ -275,5 +271,4 @@ export default {
   margin-top: -4px;
   /* 下划线与标题的距离 */
 }
-
 </style>
