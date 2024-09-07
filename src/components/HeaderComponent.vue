@@ -63,7 +63,7 @@ export default {
 }
 
 .header-section {
-  padding: 1rem 5vw;
+  padding: 0rem 5vw;
 }
 
 .logo {
