@@ -85,7 +85,7 @@ export default {
 .subtitle-wrapper {
   margin-top: 1vh;
   /* background-color: rgb(255, 253, 237);
-  border-radius: 21px;
+  border-radius: calc(21 / 16)rem;
   padding: 0.5vh 1vw; */
   display: inline-block;
   overflow: visible;
@@ -95,11 +95,11 @@ export default {
 .subtitle-wrapper::after {
   content: '';
   display: block;
-  height: 14px;
+  height: calc(14 / 16)rem;
   /* 下划线的厚度 */
   background: linear-gradient(to right, transparent, hsl(48, 97%, 73%), transparent);
   /* 渐变效果 */
-  margin-top: -4px;
+  margin-top: -calc(4 / 16)rem;
   /* 下划线与标题的距离 */
 }
 
@@ -146,16 +146,16 @@ span.char,
 #illustration-image {
   width: auto;
   height: 40vh;
-  max-height: 300px;
+  max-height: calc(300 / 16)rem;
   margin: 2vh 0;
 }
 
 #main-section-left {
   height: 40vh;
-  max-height: 300px;
+  max-height: calc(300 / 16)rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: calc(768 / 16)rem) {
   #main-section {
     padding: 2vh 2vw;
   }

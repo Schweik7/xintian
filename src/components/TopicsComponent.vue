@@ -2,7 +2,7 @@
     <section class="section topics-component container">
         <!-- 中间居中的标题和副标题 -->
         <div class="content has-text-centered">
-            <h1 class="title topics-title">人生八景“热门话题”</h1>
+            <h1 class="title topics-title">人 生 八 景 “热 门 话 题”</h1>
             <p class="subtitle has-text-grey">我们在一起，用生活之景，探寻人生之路</p>
         </div>
 
@@ -38,7 +38,8 @@
             <!-- 右侧热门话题列表 -->
             <el-col :xs="20" :sm="19" :md="19" :lg="19" :xl="19">
                 <div class="content">
-                    <el-row :gutter="globalLayoutConfig.gutter" v-for="(item, index) in sortedTopics" :key="index" class="box">
+                    <el-row :gutter="globalLayoutConfig.gutter" v-for="(item, index) in sortedTopics" :key="index"
+                        class="box">
                         <!-- 标签列 -->
                         <el-col :xs="2" :sm="2" :md="2" :lg="2" :xl="2" class="is-flex is-align-items-center">
                             <span class="tag" :style="{ backgroundColor: tagColors[index] }">{{ index + 1 }}</span>
@@ -49,8 +50,9 @@
                             <el-text class="question-text" size="large" style="font-family: PingFang-SC-Regular;">
                                 <!-- 在小屏幕上显示简短问题描述 -->
                                 <span class="hidden-md-and-up">
-                                    {{ item.question.length > 17 ? item.question.substring(0, 17) + '...' :
-                                        item.question }}
+                                    {{ item.question.length > globalLayoutConfig.longStrLimit ?
+                                        item.question.substring(0, globalLayoutConfig.longStrLimit) + '...' :
+                                    item.question }}
                                 </span>
                                 <!-- 在中屏及以上显示完整描述 -->
                                 <span class="hidden-sm-and-down">
@@ -68,7 +70,7 @@
                                         :style="{ color: item.filled.stars ? '#ffbf00' : '' }">
                                         <Icon :icon="item.filled.stars ? 'mdi:star' : 'mdi:star-outline'" width="16"
                                             height="16" />
-                                        <span class="button-text hidden-xs-only">{{ item.stars > 1000 ? '1000+' :
+                                        <span class="button-text hidden-xs-only">{{ item.stars > 999 ? '999+' :
                                             item.stars }}</span>
                                     </el-button>
                                 </el-col>
@@ -78,7 +80,8 @@
                                         :style="{ color: item.filled.comments ? '#00bfff' : '' }">
                                         <Icon :icon="item.filled.comments ? 'mdi:chat' : 'mdi:chat-outline'" width="16"
                                             height="16" />
-                                        <span class="button-text hidden-xs-only">{{ item.comments }}</span>
+                                        <span class="button-text hidden-xs-only">{{ item.comments > 999 ? '999+' :
+                                            item.comments }}</span>
                                     </el-button>
                                 </el-col>
                                 <!-- 喜欢图标 -->
@@ -87,7 +90,8 @@
                                         :style="{ color: item.filled.likes ? '#ff4500' : '' }">
                                         <Icon :icon="item.filled.likes ? 'mdi:thumb-up' : 'mdi:thumb-up-outline'"
                                             width="16" height="16" />
-                                        <span class="button-text hidden-xs-only">{{ item.likes }}</span>
+                                        <span class="button-text hidden-xs-only">{{ item.likes > 999 ? '999+' :
+                                            item.likes }}</span>
                                     </el-button>
                                 </el-col>
                             </el-row>
@@ -150,7 +154,7 @@ export default {
                     },
                 ],
                 [
-                    { question: '书山有路', stars: '800+', comments: '900+', likes: '600+', filled: { stars: false, comments: false, likes: false } },
+                    { question: '书山有路', stars: '800', comments: '900', likes: '600', filled: { stars: false, comments: false, likes: false } },
                 ],
                 // Add more topics for other sections here
             ],
@@ -173,11 +177,7 @@ export default {
             return this.hotTopics[this.selectedTopic] ? this.hotTopics[this.selectedTopic]
                 .slice()
                 .sort((a, b) => b.stars - a.stars)
-                .slice(0, 5)
-                .map(item => ({
-                    ...item,
-                    stars: item.stars > 1000 ? '1000+' : item.stars
-                })) : [];
+                .slice(0, 5) : [];
         }
     },
     methods: {
@@ -280,6 +280,11 @@ export default {
     margin-bottom: 0.5rem;
     position: relative;
     display: inline-block;
+    font-size: 2rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
 }
 
 /* 标题下划线的样式 */
@@ -373,10 +378,11 @@ export default {
         padding: 0 0px;
     }
 
-    .topics-title{
+    .topics-title {
         font-size: 23px;
     }
-    .subtitle{
+
+    .subtitle {
         font-size: 19px;
 
     }

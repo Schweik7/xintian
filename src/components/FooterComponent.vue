@@ -89,13 +89,13 @@ export default {
 
 hr {
   border: none;
-  border-top: 1px solid #e0e0e0;
+  border-top: calc(1 / 16)rem solid #e0e0e0;
   margin: 1.5rem 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: calc(768 / 16)rem) {
   .footer_text {
-    font-size: 13px;
+    font-size: calc(13 / 16)rem;
   }
 }
 </style>

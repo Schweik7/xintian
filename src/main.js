@@ -16,16 +16,21 @@ const globalLayoutConfig = reactive({
     gutter: 20,  // 默认的 gutter 值
     carouselHeight: 400,  // 轮播图默认高度
     carouselIndicatorPosition:'outside',
+    friendshipLinksGutter:120,
+    longStrLimit:17,
     updateResonsiveData() {  // 方法，用于根据窗口大小调整 gutter
         const width = window.innerWidth;
         if (width < 768) {
             this.gutter = 10;  // 移动端 gutter 较小
             this.carouselHeight = 140;  // 移动端轮播图高度较小
             this.carouselIndicatorPosition = '';  // 移动端轮播图指示器位置
+            this.friendshipLinksGutter = 10;  // 移动端友情链接间距较小
+            this.longStrLimit = parseInt(width / 25) ;  // 根据屏幕宽度动态计算应该保留的字符数
         } else {
             this.gutter = 20;  // 桌面端 gutter
             this.carouselHeight = 400;  // 桌面端轮播图高度较大
             this.carouselIndicatorPosition = 'outside';  // 桌面端轮播图指示器位置
+            this.friendshipLinksGutter = 120;  // 桌面端友情链接间距较大
         }
     }
 });

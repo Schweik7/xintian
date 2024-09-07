@@ -1,129 +1,156 @@
 <template>
-    <section class="section">
-      <div class="container">
-        <!-- 标题 -->
-        <div class="content has-text-centered">
-          <h1 class="title topics-title">友情链接</h1>
-        </div>
-  
-        <!-- 栅格布局 -->
-        <el-row :gutter="20">
-          <!-- 专业机构 -->
-          <el-col :span="8">
-            <div class="link-card">
-              <div class="link-card-content has-text-centered">
-                <h2 class="link-title">专业机构</h2>
-                <p>公益心理组织、协会、企业</p>
-                <p>心理咨询中心</p>
-                <p>心理研究机构</p>
-              </div>
-              <img src="@/images/专业机构.png" class="link-card-background" alt="Professional Background">
-            </div>
-          </el-col>
-  
-          <!-- 服务热线 -->
-          <el-col :span="8">
-            <div class="link-card link-card-pink  has-text-centered">
-              <div class="link-card-content">
-                <h2 class="link-title">服务热线</h2>
-                <p>心理危机干预热线</p>
-                <p>青少年热线</p>
-                <p>家庭与婚姻热线</p>
-                <p>心理咨询热线</p>
-              </div>
-              <img src="@/images/服务热线.png" class="link-card-background" alt="Service Background">
-            </div>
-          </el-col>
-  
-          <!-- 辅助工具 -->
-          <el-col :span="8">
-            <div class="link-card">
-              <div class="link-card-content  has-text-centered">
-                <h2 class="link-title">辅助工具</h2>
-                <p>心理健康资源库</p>
-                <p>冥想与放松工具</p>
-                <p>情绪管理应用</p>
-                <p>时间管理与规划工具</p>
-              </div>
-              <img src="@/images/辅助工具.png" class="link-card-background" alt="Tool Background">
-            </div>
-          </el-col>
-        </el-row>
+  <section class="section">
+    <div class="container">
+      <!-- 标题 -->
+      <div class="content has-text-centered">
+        <h1 class="title topics-title">友 情 链 接</h1>
       </div>
-    </section>
-  </template>
-  
-  <script>
-  export default {
-    name: 'FriendshipLinksComponent',
-  };
-  </script>
-  
-  <style scoped>
-  .section {
-    padding: 2rem 0;
-  }
-  
-  .topics-title {
-    margin-bottom: 1rem;
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* 样式 */
-  .link-card {
-    background-color: #fdfbee;
-    padding: 1.5rem;
-    border-radius: 12px;
-    position: relative; /* 使背景图片相对定位 */
-    overflow: hidden; /* 确保图片不会超出容器 */
-  }
-  
-  .link-card-pink {
-    background-color: #fff5f5; /* 服务热线的背景颜色 */
-  }
-  
-  .link-title {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 1rem;
-    position: relative;
-  }
-  
-  .link-title::after {
-    content: '';
-    display: block;
-    width: 80%;
-    height: 2px;
-    background-color: #f0c040;
-    margin-top: 0.5rem;
-    margin-left: 0;
-  }
-  
-  /* 背景图片 */
-  .link-card-background {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    width: 60px; /* 调整图片大小 */
-    height: auto;
-    opacity: 0.2; /* 透明度设置为0.2 */
-  }
 
-  /* 调整标题部分的样式 */
+      <!-- 栅格布局 -->
+      <el-row :gutter="globalLayoutConfig.friendshipLinksGutter">
+        <el-col :span="8" v-for="(section, sectionIndex) in sections" :key="sectionIndex">
+          <div class="link-card" :class="section.class">
+            <div class="link-title">{{ section.title }}</div>
+            <div class="link-items">
+              <p v-for="(item, index) in section.items" :key="index">{{ item }}</p>
+            </div>
+            <img :src="section.image" class="link-card-background" alt="Section Background">
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+  </section>
+</template>
+
+
+<script>
+import image1 from "@/images/专业机构.png";
+import image2 from "@/images/服务热线.png";
+import image3 from "@/images/辅助工具.png";
+
+export default {
+  name: 'FriendshipLinksComponent',
+  inject: ['globalLayoutConfig'],  // 注入全局配置
+  data() {
+    return {
+      sections: [
+        {
+          title: '专业机构',
+          items: ['公益心理组织', '心理咨询中心', '心理研究机构'],
+          image: image1,
+          class: 'link-card-yellow',
+        },
+        {
+          title: '服务热线',
+          items: ['心理危机干预热线', '青少年热线', '家庭与婚姻热线', '心理咨询热线'],
+          image: image2,
+          class: 'link-card-pink',
+        },
+        {
+          title: '辅助工具',
+          items: ['心理健康资源库', '冥想与放松工具', '情绪管理应用', '时间管理/规划工具'],
+          image: image3,
+          class: 'link-card-green',
+        },
+      ],
+    };
+  },
+};
+</script>
+<style scoped>
+.section {
+  padding: 2rem 0;
+}
+
 .topics-title {
-    margin-bottom: 0.5rem;
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
+  font-size: 1.8rem;
+}
+
+/* 样式 */
+.link-card {
+  background-color: #fdfbee;
+  padding: 1.5rem;
+  border-radius: 12px;
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 200px;
+  transition: padding 0.3s;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.link-card-yellow {
+  background-color: #fffef6;
+}
+
+.link-card-pink {
+  background-color: #fffcf9;
+}
+
+.link-card-green {
+  background-color: #fdfff6;
+  /* 调淡的绿色背景 */
+}
+
+.link-title {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+  width: 100%;
+  border-bottom: 2px solid #f0c040;
+  /* 分割线 */
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+.link-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70%;
+  justify-content: space-between;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* 背景图片 */
+.link-card-background {
+  position: absolute;
+  bottom: 1.3rem;
+  left:20%;
+  width: 35%;
+  height: auto;
+  opacity: 1;
+  z-index: 3000;
+  /* 显示在容器上层 */
+  transform: translate(-50%, 20%);
+  /* 调整显示位置 */
+  object-fit: contain;
+  /* 保持比例 */
 }
 
 /* 标题下划线的样式 */
 .topics-title::after {
-    content: '';
-    display: block;
-    height: 12px;
-    background: linear-gradient(to right, transparent, hsl(48, 97%, 73%), transparent);
-    margin-top: 4px;
+  content: '';
+  display: block;
+  height: 12px;
+  background: linear-gradient(to right, transparent, hsl(48, 97%, 73%), transparent);
+  margin-top: 4px;
 }
-  </style>
-  
+
+/* 样式调整 */
+@media (max-width: 768px) {
+  .link-card {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    /* 移动端减少内边距 */
+    min-height: 220px;
+    /* 移动端调整高度 */
+  }
+}
+</style>

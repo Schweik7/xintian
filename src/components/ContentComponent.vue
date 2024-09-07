@@ -127,7 +127,7 @@ export default {
 /* Section 标题的样式 */
 .section-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: calc(20 / 16)rem;
   font-weight: bold;
 }
 
@@ -150,14 +150,14 @@ export default {
   position: relative;
   transition: all 0.5s ease;
   width: 30%;
-  min-width: 250px;
+  min-width: calc(250 / 16)rem;
   margin: 0 0px;
   z-index: 1;
 }
 
 /* 调整图片大小，确保图片高度一致 */
 .image-container figure {
-  height: 170px;
+  height: calc(170 / 16)rem;
   overflow: visible;
   display: flex;
   justify-content: center;
