@@ -12,25 +12,28 @@
             <el-col :xs="3" :sm="5" :md="5" :lg="5" :xl="5">
                 <aside class="menu full-height">
                     <ul class="menu-list flex-column full-height">
-                        <li v-for="(topic, index) in topics" :key="index"
-                            :class="{ 'is-active': selectedTopic === index }" @click="selectTopic(index)"
-                            @mouseover="handleMouseOver(index)" @mouseleave="handleMouseLeave(index)" class="menu-item">
-                            <!-- 图标区域 -->
-                            <div class="menu-item-icon">
-                                <Icon :icon="topic.icon" :style="{ color: topic.color }" width="24" height="24"
-                                    class="icon-animated" :class="{ 'animate-icon': iconInView[index] }"
-                                    ref="topicIcons" />
-                            </div>
-                            <!-- 文字区域 (仅在md及以上设备显示) -->
-                            <div class="menu-item-text hidden-sm-and-down">
-                                <span style="font-family: PingFang-SC-Bold;">{{ topic.title }}</span>
-                            </div>
-                            <!-- 热门标志区域 -->
-                            <div class="menu-item-hot hidden-sm-and-down">
-                                <Icon v-if="topic.hot" icon="mdi:fire" class="hot-icon" width="18" height="18" />
-                                <span v-else class="placeholder"></span> <!-- 空的占位符 -->
-                            </div>
-                        </li>
+                        <!-- 包裹整个 li 元素 -->
+                        <el-tooltip v-for="(topic, index) in topics" :key="index" :content="tooltips[index]"
+                            placement="right" effect="dark">
+                            <li :class="{ 'is-active': selectedTopic === index }" @mouseenter="handleMouseEnter(index)"
+                                @mouseleave="handleMouseLeave(index)" class="menu-item">
+                                <!-- 图标区域 -->
+                                <div class="menu-item-icon">
+                                    <Icon :icon="topic.icon" :style="{ color: topic.color }" width="24" height="24"
+                                        class="icon-animated" :class="{ 'animate-icon': iconInView[index] }"
+                                        ref="topicIcons" />
+                                </div>
+                                <!-- 文字区域 (仅在md及以上设备显示) -->
+                                <div class="menu-item-text hidden-sm-and-down">
+                                    <span style="font-family: PingFang-SC-Bold;">{{ topic.title }}</span>
+                                </div>
+                                <!-- 热门标志区域 -->
+                                <div class="menu-item-hot hidden-sm-and-down">
+                                    <Icon v-if="topic.hot" icon="mdi:fire" class="hot-icon" width="18" height="18" />
+                                    <span v-else class="placeholder"></span> <!-- 空的占位符 -->
+                                </div>
+                            </li>
+                        </el-tooltip>
                     </ul>
                 </aside>
             </el-col>
@@ -52,7 +55,7 @@
                                 <span class="hidden-md-and-up">
                                     {{ item.question.length > globalLayoutConfig.longStrLimit ?
                                         item.question.substring(0, globalLayoutConfig.longStrLimit) + '...' :
-                                    item.question }}
+                                        item.question }}
                                 </span>
                                 <!-- 在中屏及以上显示完整描述 -->
                                 <span class="hidden-sm-and-down">
@@ -129,6 +132,16 @@ export default {
                 { title: '虚实相生（网络）', icon: 'line-md:cloud-alt', color: '#F69B97' },
                 { title: '怡情养性（健康）', icon: 'line-md:heart', color: '#9CC6F5' },
                 { title: '生生不息（耕耘）', icon: 'line-md:moon-to-sunny-outline-loop-transition', color: '#F6908C', hot: true },
+            ],
+            tooltips: [
+                "我是谁？我的价值观和人生目标是什么？",
+                "我如何看待学习，以及与师长、同窗之间的关系？",
+                "我受到哪些来自家庭的影响？",
+                "我和朋友、恋人之间发生了哪些故事？",
+                "我的职业发展方向是什么？",
+                "我在网络世界里发生了什么？",
+                "我如何面对疾病和死亡？",
+                "我喜欢去做什么？"
             ],
             hotTopics: [
                 [
