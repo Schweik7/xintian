@@ -1,4 +1,5 @@
 <template>
+  <section class="section"></section>
   <div id="main-section" class="container">
     <div id="content-section" class="level gao-less">
       <!-- 标题、logo和"网站" -->
@@ -21,7 +22,7 @@
           </div>
           <div class="column has-text-centered">
             <button id="learn-more-button" class="button is-warning hvr-icon-wobble-horizontal">
-              <span>了解更多</span>
+              <span class="subtitle is-6">了解更多</span>
               <span class="icon">
                 <i class="fa fa-arrow-right hvr-icon"></i>
               </span>
@@ -36,6 +37,7 @@
       </div>
     </div>
   </div>
+  <section class="section"></section>
 </template>
 
 <script>
@@ -76,7 +78,7 @@ export default {
 
 .title-text {
   color: rgba(51, 51, 51, 1);
-  font-size: 3.5vh;
+  font-size: 4.5vh;
   font-family: "PingFang-SC-Heavy", sans-serif;
   font-weight: 900;
   white-space: nowrap;
@@ -105,7 +107,7 @@ export default {
 
 .subtitle-text {
   color: hwb(150 19% 78%);
-  font-size: 2.5vh;
+  font-size: 3.5vh;
   font-family: "PingFang-SC-Medium", sans-serif;
   font-weight: 500;
   display: inline-block;
@@ -145,17 +147,17 @@ span.char,
 
 #illustration-image {
   width: auto;
-  height: 40vh;
+  height: 50vh;
   max-height: calc(300 / 16)rem;
-  margin: 2vh 0;
+  margin: 0 0 0 4vw;
 }
 
 #main-section-left {
-  height: 40vh;
+  height: 50vh;
   max-height: calc(300 / 16)rem;
 }
 
-@media (max-width: calc(768 / 16)rem) {
+@media (max-width: 768px) {
   #main-section {
     padding: 2vh 2vw;
   }

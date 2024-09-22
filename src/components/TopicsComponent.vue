@@ -2,7 +2,7 @@
     <section class="section topics-component container">
         <!-- 中间居中的标题和副标题 -->
         <div class="content has-text-centered">
-            <h1 class="title topics-title">人 生 八 景 “热 门 话 题”</h1>
+            <h1 class="title topics-title">“人 生 八 景” 心 灵 社 区</h1>
             <p class="subtitle has-text-grey">我们在一起，用生活之景，探寻人生之路</p>
         </div>
 

@@ -1,87 +1,96 @@
-/* * {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-  outline: 1px solid rgba(0, 0, 0, 0.1);
-} */
-
 body * {
-    box-sizing: border-box;
-    flex-shrink: 0;
-  }
-  body {
-    font-family: PingFangSC-Regular, Roboto, Helvetica Neue, Helvetica, Tahoma,
-      Arial, PingFang SC-Light, Microsoft YaHei;
-  }
-  input {
-    background-color: transparent;
-    border: 0;
-  }
-  button {
-    margin: 0;
-    padding: 0;
-    border: 1px solid transparent;
-    outline: none;
-    background-color: transparent;
-  }
-  
-  button:active {
-    opacity: 0.6;
-  }
-  .van-nav-bar__left:active,
-  .van-nav-bar__right:active {
-    opacity: 1;
-  }
-  [class*='van-']::after {
-    border-bottom: 0;
-  }
-  .flex-col {
-    display: flex;
-    flex-direction: column;
-  }
-  .flex-row {
-    display: flex;
-    flex-direction: row;
-  }
-  .justify-start {
-    display: flex;
-    /* 子元素集中在容器的起始位置 */
-    justify-content: flex-start;
-  }
-  .justify-center {
-    display: flex;
-    /* 子元素集中在容器的中间位置 */
-    justify-content: center;
-  }
-  
-  .justify-end {
-    display: flex;
-    /* 子元素集中在容器的末尾位置 */
-    justify-content: flex-end;
-  }
-  .justify-evenly {
-    display: flex;
-    /* 等距间隔，边距为元素间距 */
-    justify-content: space-evenly;
-  }
-  .justify-around {
-    display: flex;
-    /* 等距间隔，边距为元素距离一半 */
-    justify-content: space-around;
-  }
-  .justify-between {
-    display: flex;
-    /* 等距间隔，紧贴边缘 */
-    justify-content: space-between;
-  }
-  .align-start {
-    display: flex;
-    align-items: flex-start;
-  }
-  .align-center {
-    display: flex;
-    align-items: center;
-  }
-  .align-end {
-    display: flex;
-    align-items: flex-end;
-  }
-  
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+body {
+  font-family: PingFangSC-Regular, Roboto, Helvetica Neue, Helvetica, Tahoma,
+    Arial, PingFang SC-Light, Microsoft YaHei;
+}
+
+input {
+  background-color: transparent;
+  border: 0;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  outline: none;
+  background-color: transparent;
+}
+
+button:active {
+  opacity: 0.6;
+}
+
+.van-nav-bar__left:active,
+.van-nav-bar__right:active {
+  opacity: 1;
+}
+
+[class*='van-']::after {
+  border-bottom: 0;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.justify-start {
+  display: flex;
+  /* 子元素集中在容器的起始位置 */
+  justify-content: flex-start;
+}
+
+.justify-center {
+  display: flex;
+  /* 子元素集中在容器的中间位置 */
+  justify-content: center;
+}
+
+.justify-end {
+  display: flex;
+  /* 子元素集中在容器的末尾位置 */
+  justify-content: flex-end;
+}
+
+.justify-evenly {
+  display: flex;
+  /* 等距间隔，边距为元素间距 */
+  justify-content: space-evenly;
+}
+
+.justify-around {
+  display: flex;
+  /* 等距间隔，边距为元素距离一半 */
+  justify-content: space-around;
+}
+
+.justify-between {
+  display: flex;
+  /* 等距间隔，紧贴边缘 */
+  justify-content: space-between;
+}
+
+.align-start {
+  display: flex;
+  align-items: flex-start;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.align-end {
+  display: flex;
+  align-items: flex-end;
+}

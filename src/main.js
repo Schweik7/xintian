@@ -8,7 +8,10 @@ import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 import { createApp, reactive, provide } from 'vue';
 import App from './App.vue';
-
+// 开发环境下，导入开发环境的样式，主要是打开布局骨架
+if (import.meta.env.VITE_ENV === 'development') {
+    import('./assets/dev-common.css');
+  }
 const app = createApp(App);
 
 // 创建全局响应式布局配置对象
