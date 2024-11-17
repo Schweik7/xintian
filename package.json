@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --mode development --host 0.0.0.0 --port 8000",
+    "dev": "vite --mode development --host 0.0.0.0 --port 5010",
     "build": "vite build --mode production",
     "preview": "vite preview",
-    "serve": "nohup serve -s dist -l tcp://0.0.0.0:8000 --no-clipboard &"
+    "serve": "nohup serve -s dist -l tcp://0.0.0.0:5010 --no-clipboard &"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
