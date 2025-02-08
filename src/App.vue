@@ -1,10 +1,9 @@
 <template>
   <div class="page flex-col">
+
     <HeaderComponent />
-    <!-- <StarryBackground /> -->
     <MainSectionComponent />
-    <!-- <ContentComponent />
-    <TopicsComponent /> -->
+    <section class="section is-large"></section>
     <FriendshipLinksComponent />
     <FooterComponent />
   </div>
@@ -37,7 +36,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-
-</style>

@@ -1,47 +1,39 @@
 <template>
-  <section class="section"></section>
   <div id="main-section" class="container">
-    <div id="content-section" class="level gao-less">
-      <!-- 标题、logo和"网站" -->
-      <div id="main-section-left" class="level-item">
-        <div class="columns is-flex-direction-column">
-          <div class="column is-flex is-align-items-center is-justify-content-center">
-            <span class="title-text animate-item">欢迎来到</span>
-            <img id="logo-image" class="animate-item" src="@/images/心田首页.png" />
-            <span class="title-text animate-item">网站</span>
-          </div>
-          <!-- 子标题 -->
-          <div class="column has-text-centered">
-            <div class="subtitle-wrapper">
-              <!-- 通过 v-for 动态插入 .char 元素 -->
-              <span class="subtitle-text" ref="subtitleText">
-                <span v-for="(char, index) in subtitleText" :key="index" class="char"
-                  :style="{ animationDelay: `${index * 0.1}s` }">{{ char }}</span>
-              </span>
-            </div>
-          </div>
-          <div class="column has-text-centered">
-            <button id="learn-more-button" class="button is-warning hvr-icon-wobble-horizontal"
-              @click="showPoem = true">
-              <span class="subtitle is-6">了解更多</span>
-              <span class="icon">
-                <i class="fa fa-arrow-right hvr-icon"></i>
-              </span>
-            </button>
-          </div>
-          <!-- 诗歌对话框 -->
-          <PoeticDialog v-model:visible="showPoem" />
-          <!-- <LetterDialog v-model:visible="showLetter" /> -->
+    <!-- 标题、logo和"网站" -->
+    <div id="main-section-left" class="">
+      <div class="columns is-flex-direction-column">
+        <div class="column is-flex is-align-items-center is-justify-content-center">
+          <span class="title-text animate-item">欢迎来到</span>
+          <img id="logo-image" class="animate-item" src="@/images/心田首页.png" />
+          <span class="title-text animate-item">网站</span>
         </div>
-      </div>
-
-      <!-- 右侧图片 -->
-      <div class="level-item is-centered">
-        <img id="illustration-image" src="@/images/心灵之田.png" />
+        <!-- 子标题 -->
+        <div class="column has-text-centered">
+          <div class="subtitle-wrapper">
+            <!-- 通过 v-for 动态插入 .char 元素 -->
+            <span class="subtitle-text" ref="subtitleText">
+              <span v-for="(char, index) in subtitleText" :key="index" class="char"
+                :style="{ animationDelay: `${index * 0.1}s` }">{{ char }}</span>
+            </span>
+          </div>
+        </div>
+        <div class="column has-text-centered">
+          <button id="learn-more-button" class="button is-warning hvr-icon-wobble-horizontal" @click="showPoem = true">
+            <span class="subtitle is-6">了解更多</span>
+            <span class="icon">
+              <i class="fa fa-arrow-right hvr-icon"></i>
+            </span>
+          </button>
+        </div>
+        <!-- 诗歌对话框 -->
+        <PoeticDialog v-model:visible="showPoem" />
+        <div class="column">
+          <img id="illustration-image" src="@/images/心灵之田.png" alt="心灵之田" />
+        </div>
       </div>
     </div>
   </div>
-  <section class="section"></section>
 </template>
 
 <script>
@@ -83,7 +75,7 @@ export default {
 }
 
 #logo-image {
-  height: 4.5vh;
+  /* height: 4.5vh; */
   margin: 0 1vw;
   vertical-align: middle;
 }
@@ -159,9 +151,8 @@ span.char,
 
 #illustration-image {
   width: auto;
-  height: 50vh;
-  max-height: calc(300 / 16)rem;
-  margin: 0 0 0 4vw;
+  margin-top: -8rem;
+  /* max-height: calc(300 / 16)rem; */
 }
 
 #main-section-left {
