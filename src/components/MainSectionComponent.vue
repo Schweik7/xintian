@@ -21,13 +21,17 @@
             </div>
           </div>
           <div class="column has-text-centered">
-            <button id="learn-more-button" class="button is-warning hvr-icon-wobble-horizontal">
+            <button id="learn-more-button" class="button is-warning hvr-icon-wobble-horizontal"
+              @click="showPoem = true">
               <span class="subtitle is-6">了解更多</span>
               <span class="icon">
                 <i class="fa fa-arrow-right hvr-icon"></i>
               </span>
             </button>
           </div>
+          <!-- 诗歌对话框 -->
+          <PoeticDialog v-model:visible="showPoem" />
+          <!-- <LetterDialog v-model:visible="showLetter" /> -->
         </div>
       </div>
 
@@ -41,11 +45,19 @@
 </template>
 
 <script>
+// import LetterDialog from './LetterDialog.vue'
+import PoeticDialog from './PoeticDialog.vue';
 export default {
   name: 'MainSectionComponent',
+  components: {
+    // LetterDialog,
+    PoeticDialog
+  },
   data() {
     return {
       subtitleText: '一个我们的秘密基地'.split(''), // 将子标题文本分割为单个字符数组
+      // showLetter: false,
+      showPoem: false
     };
   },
   mounted() {
