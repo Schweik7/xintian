@@ -1,0 +1,53 @@
+<!-- public/panorama.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panorama View</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <style>
+        body { margin: 0; }
+        .a-enter-vr { display: none !important; }
+    </style>
+</head>
+<body>
+    <a-scene embedded vr-mode-ui="enabled: false">
+        <a-assets>
+            <img id="panorama" crossorigin="anonymous" />
+        </a-assets>
+        <a-sky id="sky" src="#panorama"></a-sky>
+        <a-entity id="rig">
+            <a-camera id="camera" position="0 1.6 0">
+                <a-entity animation="property: rotation; 
+                                   to: 0 360 0; 
+                                   dur: 30000; 
+                                   easing: linear; 
+                                   loop: true">
+                </a-entity>
+            </a-camera>
+        </a-entity>
+    </a-scene>
+    <script>
+        // 获取URL参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const imageUrl = urlParams.get('image');
+        const index = urlParams.get('index');
+
+        // 设置全景图
+        if (imageUrl) {
+            const panoramaImg = document.getElementById('panorama');
+            panoramaImg.src = decodeURIComponent(imageUrl);
+            
+            // 图片加载完成后的处理
+            panoramaImg.onload = function() {
+                const sky = document.getElementById('sky');
+                sky.setAttribute('src', '#panorama');
+            };
+        }
+
+        // 防止滚动穿透
+        document.body.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+    </script>
+</body>
+</html>

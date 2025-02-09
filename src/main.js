@@ -8,6 +8,8 @@ import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 import { createApp, reactive, provide } from 'vue';
 import App from './App.vue';
+import 'aframe/dist/aframe-v1.6.0';
+// import 'aframe';
 // 开发环境下，导入开发环境的样式，主要是打开布局骨架
 if (import.meta.env.VITE_ENV === 'development') {
     import('./assets/dev-common.css');
@@ -45,4 +47,5 @@ window.addEventListener('resize', globalLayoutConfig.updateResonsiveData.bind(gl
 app.provide('globalLayoutConfig', globalLayoutConfig);
 
 app.use(ElementPlus);
+// app.use(Aframe);
 app.mount('#app');
