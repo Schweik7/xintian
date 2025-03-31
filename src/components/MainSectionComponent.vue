@@ -11,7 +11,6 @@
         <!-- 子标题 -->
         <div class="column has-text-centered">
           <div class="subtitle-wrapper">
-            <!-- 通过 v-for 动态插入 .char 元素 -->
             <span class="subtitle-text" ref="subtitleText">
               <span v-for="(char, index) in subtitleText" :key="index" class="char"
                 :style="{ animationDelay: `${index * 0.1}s` }">{{ char }}</span>
@@ -19,36 +18,35 @@
           </div>
         </div>
         <div class="column has-text-centered">
-          <button id="learn-more-button" class="button is-warning hvr-icon-wobble-horizontal" @click="showPoem = true">
-            <span class="subtitle is-6">了解更多</span>
-            <span class="icon">
-              <i class="fa fa-arrow-right hvr-icon"></i>
-            </span>
-          </button>
+          <!-- 新增的包装器div -->
+          <div class="image-button-wrapper">
+            <button id="learn-more-button" class="button is-warning hvr-icon-wobble-horizontal" @click="showPoem = true">
+              <span class="subtitle is-6">了解更多</span>
+              <span class="icon">
+                <i class="fa fa-arrow-right hvr-icon wobble-icon"></i>
+              </span>
+            </button>
+            <img id="illustration-image" src="@/images/心灵之田.png" alt="心灵之田" />
+          </div>
         </div>
         <!-- 诗歌对话框 -->
         <PoeticDialog v-model:visible="showPoem" />
-        <div class="column">
-          <img id="illustration-image" src="@/images/心灵之田.png" alt="心灵之田" />
-        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import LetterDialog from './LetterDialog.vue'
 import PoeticDialog from './PoeticDialog.vue';
+
 export default {
   name: 'MainSectionComponent',
   components: {
-    // LetterDialog,
     PoeticDialog
   },
   data() {
     return {
       subtitleText: '一个我们的秘密基地'.split(''), // 将子标题文本分割为单个字符数组
-      // showLetter: false,
       showPoem: false
     };
   },
@@ -57,17 +55,15 @@ export default {
   },
   methods: {
     applyAnimation() {
-      // 设置 .animate-item（包括 .title-text 和 #logo-image） 的动画延迟
+      // 设置 .animate-item 的动画延迟
       const animateItems = document.querySelectorAll('.animate-item');
       animateItems.forEach((item, index) => {
-        item.style.animationDelay = `${index * 0.3}s`; // 假设每个元素间隔 0.5s
+        item.style.animationDelay = `${index * 0.3}s`;
       });
     },
   },
 };
 </script>
-
-<style></style>
 
 <style scoped>
 #main-section {
@@ -75,7 +71,6 @@ export default {
 }
 
 #logo-image {
-  /* height: 4.5vh; */
   margin: 0 1vw;
   vertical-align: middle;
 }
@@ -90,23 +85,16 @@ export default {
 
 .subtitle-wrapper {
   margin-top: 1vh;
-  /* background-color: rgb(255, 253, 237);
-  border-radius: calc(21 / 16)rem;
-  padding: 0.5vh 1vw; */
   display: inline-block;
   overflow: visible;
-  /* 允许内部元素溢出 */
 }
 
 .subtitle-wrapper::after {
   content: '';
   display: block;
   height: calc(14 / 16)rem;
-  /* 下划线的厚度 */
   background: linear-gradient(to right, transparent, hsl(48, 97%, 73%), transparent);
-  /* 渐变效果 */
   margin-top: -calc(4 / 16)rem;
-  /* 下划线与标题的距离 */
 }
 
 .subtitle-text {
@@ -116,7 +104,39 @@ export default {
   font-weight: 500;
   display: inline-block;
   overflow: visible;
-  /* 允许内部元素溢出 */
+}
+
+/* 新增的包装器样式 */
+.image-button-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 修改后的按钮样式 */
+#learn-more-button {
+  position: absolute;
+  z-index: 2;
+  top: 9%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1vh 2vw;
+  font-size: 2vh;
+}
+
+
+
+/* 修改后的图片样式 */
+#illustration-image {
+  position: relative;
+  width: 65vw;
+  height: auto;
+  margin-top: -4vh;
+  z-index: -100;
+  margin-right: 2vw;
 }
 
 span.char,
@@ -125,7 +145,6 @@ span.char,
   opacity: 0;
   animation-name: fadeInUp;
   animation-duration: 2s;
-  /* 与标题和图像一致的持续时间 */
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
 }
@@ -144,22 +163,47 @@ span.char,
   }
 }
 
-#learn-more-button {
-  padding: 1vh 2vw;
-  font-size: 2vh;
-}
-
-#illustration-image {
-  width: auto;
-  margin-top: -8rem;
-  /* max-height: calc(300 / 16)rem; */
-}
-
 #main-section-left {
   height: 50vh;
   max-height: calc(300 / 16)rem;
 }
 
+/* 持续跳动的动画 */
+@keyframes continuousWobble {
+  15% {
+    transform: translateX(-25%) rotate(-5deg);
+  }
+  30% {
+    transform: translateX(20%) rotate(3deg);
+  }
+  45% {
+    transform: translateX(-15%) rotate(-3deg);
+  }
+  60% {
+    transform: translateX(10%) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-5%) rotate(-1deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* 应用到图标上的样式 */
+.wobble-icon {
+  display: inline-block;
+  animation: continuousWobble 2s infinite;
+  /* 可以调整动画时间和其他参数 */
+  transform-origin: center;
+}
+
+/* 可选：当鼠标悬停时暂停动画 */
+#learn-more-button:hover .wobble-icon {
+  animation-play-state: paused;
+}
+
+/* 响应式样式 */
 @media (max-width: 768px) {
   #main-section {
     padding: 2vh 2vw;
@@ -183,7 +227,7 @@ span.char,
   }
 
   #illustration-image {
-    width: 80vw;
+    width: 70vw;
     height: auto;
     margin-bottom: 2vh;
   }

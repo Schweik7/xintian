@@ -2,7 +2,7 @@
   <section class="section">
     <div class="container">
       <!-- 标题 -->
-      <div class="content has-text-centered">
+      <div class="content has-text-centered anchor">
         <h1 class="title topics-title">友 情 链 接</h1>
       </div>
 
